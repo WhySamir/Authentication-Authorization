@@ -22,7 +22,7 @@ export const verifyAccessToken = async (
     const user = await User.findById(decoded._id);
     if (!user) return res.status(404).json({ message: "User not found" });
 
-    req.user = user; // 🔥 attaches user to request object
+    req.user = user; // attaches user to request object
     next();
   } catch (err) {
     return res.status(401).json({ message: "Invalid or expired access token" });
